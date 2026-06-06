@@ -1,14 +1,15 @@
 local wezterm = require("wezterm")
-local keys = require("keys")
-local mouse = require("mouse")
-local config = wezterm.config_builder()
+local keys    = require("keys")
+local mouse   = require("mouse")
+local tabs    = require("tabs")
+local config  = wezterm.config_builder()
 
 -- shell
 config.default_prog = { "C:/Program Files/Git/bin/bash.exe", "-i", "-l" }
 
 -- font
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 13
+config.font_size = 12
 config.line_height = 1
 
 -- colors
@@ -29,6 +30,7 @@ config.window_padding = {
 -- tabs
 config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
+tabs.apply(config)
 
 -- keys
 config.leader = { key = "w", mods = "CTRL", timeout_milliseconds = 1000 }
