@@ -4,7 +4,12 @@ local M = {}
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   local pane = tab.active_pane
-  local process = pane.foreground_process_name or ""
+
+  local success, process = pcall(function() 
+    return pane:get_foreground_process_name() 
+  end)
+
+  process = (success and process) or ""
 
   local label = "terminal"
   local icon  = ""

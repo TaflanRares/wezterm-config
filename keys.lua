@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local rmux = {}
+local is_maximized = false
 
 local function is_nvim(pane)
 	local process = pane:get_foreground_process_name() or ""

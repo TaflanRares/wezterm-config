@@ -4,8 +4,18 @@ local mouse   = require("mouse")
 local tabs    = require("tabs")
 local config  = wezterm.config_builder()
 
+-- temp
+local temp_path = "C:/Users/tafla/AppData/Local/Temp/WezTemp"
+
 -- shell
 config.default_prog = { "C:/Program Files/Git/bin/bash.exe", "-i", "-l" }
+
+config.set_environment_variables = {
+	["TEMP"] = temp_path,
+  ["TMP"] = temp_path,
+  ["TMPDIR"] = temp_path,
+  ["MSYS2_ARG_CONV_EXCL"] = "*",
+}
 
 -- font
 config.font = wezterm.font("JetBrainsMono Nerd Font")
